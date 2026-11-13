@@ -1,0 +1,19 @@
+{
+  "models": {
+    "popularity": {
+      "run_id": "f43fa0421e6e4ebdb4f4d63da57ee672",
+      "file": "popularity.pkl",
+      "train_seconds": 0.0
+    },
+    "als_mf": {
+      "run_id": "1ae2bc884b544c2097d33e3f84d2f237",
+      "file": "als_mf.pkl",
+      "train_seconds": 1.42
+    },
+    "hybrid": {
+      "run_id": "04ae946d60d84e95a318a07136feaf4b",
+      "file": "hybrid.pkl",
+      "train_seconds": 0.0
+    }
+  }
+}

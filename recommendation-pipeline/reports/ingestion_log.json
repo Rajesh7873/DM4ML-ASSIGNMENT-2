@@ -1,0 +1,40 @@
+{
+  "source": "synthetic",
+  "tables": {
+    "users": {
+      "rows": 1513,
+      "columns": [
+        "user_id",
+        "age",
+        "gender",
+        "country",
+        "signup_date"
+      ],
+      "md5": "c6da4c7670fb1b0d14f60905a4955b59",
+      "missing_cells": 127
+    },
+    "items": {
+      "rows": 605,
+      "columns": [
+        "item_id",
+        "title",
+        "category",
+        "release_year"
+      ],
+      "md5": "dc1c7ec1c95e333261dfeb29d545f93c",
+      "missing_cells": 34
+    },
+    "interactions": {
+      "rows": 59007,
+      "columns": [
+        "user_id",
+        "item_id",
+        "rating",
+        "timestamp"
+      ],
+      "md5": "c7e512595201a3f3a654e94845badd25",
+      "missing_cells": 504
+    }
+  },
+  "seconds": 2.57
+}

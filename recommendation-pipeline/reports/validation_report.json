@@ -1,0 +1,327 @@
+{
+  "reference_date": "2025-01-01",
+  "max_error_rate": 0.15,
+  "tables": {
+    "users": {
+      "records_in": 1513,
+      "valid": 1493,
+      "rejected": 20,
+      "rejected_pct": 1.3218770654329148,
+      "warning_rows": 136
+    },
+    "items": {
+      "records_in": 605,
+      "valid": 600,
+      "rejected": 5,
+      "rejected_pct": 0.8264462809917356,
+      "warning_rows": 34
+    },
+    "interactions": {
+      "records_in": 59007,
+      "valid": 52736,
+      "rejected": 6271,
+      "rejected_pct": 10.627552663243344,
+      "warning_rows": 1954
+    }
+  },
+  "checks": [
+    {
+      "table": "users",
+      "check": "missing_user_id",
+      "severity": "error",
+      "description": "user_id is empty",
+      "checked": 1513,
+      "failed": 0,
+      "action": "rejected -> errors dataset"
+    },
+    {
+      "table": "users",
+      "check": "invalid_dtype_user_id",
+      "severity": "error",
+      "description": "user_id is not an integer",
+      "checked": 1513,
+      "failed": 0,
+      "action": "rejected -> errors dataset"
+    },
+    {
+      "table": "users",
+      "check": "exact_duplicate_row",
+      "severity": "error",
+      "description": "Row is an exact copy of an earlier row",
+      "checked": 1513,
+      "failed": 13,
+      "action": "rejected -> errors dataset"
+    },
+    {
+      "table": "users",
+      "check": "duplicate_primary_key",
+      "severity": "error",
+      "description": "user_id repeated with different content",
+      "checked": 1513,
+      "failed": 0,
+      "action": "rejected -> errors dataset"
+    },
+    {
+      "table": "users",
+      "check": "missing_age",
+      "severity": "warning",
+      "description": "age is empty -> imputed with median",
+      "checked": 1513,
+      "failed": 63,
+      "action": "kept, repaired in preparation"
+    },
+    {
+      "table": "users",
+      "check": "age_out_of_range",
+      "severity": "warning",
+      "description": "age outside [10, 100] -> set to missing, then imputed",
+      "checked": 1513,
+      "failed": 13,
+      "action": "kept, repaired in preparation"
+    },
+    {
+      "table": "users",
+      "check": "missing_country",
+      "severity": "warning",
+      "description": "country is empty -> 'unknown'",
+      "checked": 1513,
+      "failed": 38,
+      "action": "kept, repaired in preparation"
+    },
+    {
+      "table": "users",
+      "check": "missing_gender",
+      "severity": "warning",
+      "description": "gender is empty -> 'unknown'",
+      "checked": 1513,
+      "failed": 26,
+      "action": "kept, repaired in preparation"
+    },
+    {
+      "table": "users",
+      "check": "invalid_signup_date",
+      "severity": "error",
+      "description": "signup_date is not YYYY-MM-DD",
+      "checked": 1513,
+      "failed": 7,
+      "action": "rejected -> errors dataset"
+    },
+    {
+      "table": "users",
+      "check": "missing_signup_date",
+      "severity": "error",
+      "description": "signup_date is empty",
+      "checked": 1513,
+      "failed": 0,
+      "action": "rejected -> errors dataset"
+    },
+    {
+      "table": "users",
+      "check": "future_signup_date",
+      "severity": "error",
+      "description": "signup_date is after the reference date",
+      "checked": 1513,
+      "failed": 0,
+      "action": "rejected -> errors dataset"
+    },
+    {
+      "table": "items",
+      "check": "missing_item_id",
+      "severity": "error",
+      "description": "item_id is empty",
+      "checked": 605,
+      "failed": 0,
+      "action": "rejected -> errors dataset"
+    },
+    {
+      "table": "items",
+      "check": "invalid_dtype_item_id",
+      "severity": "error",
+      "description": "item_id is not an integer",
+      "checked": 605,
+      "failed": 0,
+      "action": "rejected -> errors dataset"
+    },
+    {
+      "table": "items",
+      "check": "exact_duplicate_row",
+      "severity": "error",
+      "description": "Row is an exact copy of an earlier row",
+      "checked": 605,
+      "failed": 5,
+      "action": "rejected -> errors dataset"
+    },
+    {
+      "table": "items",
+      "check": "duplicate_primary_key",
+      "severity": "error",
+      "description": "item_id repeated with different content",
+      "checked": 605,
+      "failed": 0,
+      "action": "rejected -> errors dataset"
+    },
+    {
+      "table": "items",
+      "check": "missing_title",
+      "severity": "warning",
+      "description": "title is empty -> placeholder title",
+      "checked": 605,
+      "failed": 19,
+      "action": "kept, repaired in preparation"
+    },
+    {
+      "table": "items",
+      "check": "missing_category",
+      "severity": "warning",
+      "description": "category is empty -> 'unknown'",
+      "checked": 605,
+      "failed": 15,
+      "action": "kept, repaired in preparation"
+    },
+    {
+      "table": "items",
+      "check": "release_year_out_of_range",
+      "severity": "warning",
+      "description": "release_year outside plausible range -> set to missing, then imputed",
+      "checked": 605,
+      "failed": 3,
+      "action": "kept, repaired in preparation"
+    },
+    {
+      "table": "interactions",
+      "check": "missing_user_id",
+      "severity": "error",
+      "description": "user_id is empty",
+      "checked": 59007,
+      "failed": 0,
+      "action": "rejected -> errors dataset"
+    },
+    {
+      "table": "interactions",
+      "check": "missing_item_id",
+      "severity": "error",
+      "description": "item_id is empty",
+      "checked": 59007,
+      "failed": 0,
+      "action": "rejected -> errors dataset"
+    },
+    {
+      "table": "interactions",
+      "check": "invalid_dtype_user_id",
+      "severity": "error",
+      "description": "user_id is not an integer",
+      "checked": 59007,
+      "failed": 649,
+      "action": "rejected -> errors dataset"
+    },
+    {
+      "table": "interactions",
+      "check": "invalid_dtype_item_id",
+      "severity": "error",
+      "description": "item_id is not an integer",
+      "checked": 59007,
+      "failed": 0,
+      "action": "rejected -> errors dataset"
+    },
+    {
+      "table": "interactions",
+      "check": "missing_rating",
+      "severity": "error",
+      "description": "rating is empty",
+      "checked": 59007,
+      "failed": 504,
+      "action": "rejected -> errors dataset"
+    },
+    {
+      "table": "interactions",
+      "check": "invalid_dtype_rating",
+      "severity": "error",
+      "description": "rating is not numeric",
+      "checked": 59007,
+      "failed": 147,
+      "action": "rejected -> errors dataset"
+    },
+    {
+      "table": "interactions",
+      "check": "rating_out_of_range",
+      "severity": "error",
+      "description": "rating outside [1, 5]",
+      "checked": 59007,
+      "failed": 1144,
+      "action": "rejected -> errors dataset"
+    },
+    {
+      "table": "interactions",
+      "check": "missing_timestamp",
+      "severity": "error",
+      "description": "timestamp is empty",
+      "checked": 59007,
+      "failed": 0,
+      "action": "rejected -> errors dataset"
+    },
+    {
+      "table": "interactions",
+      "check": "invalid_timestamp",
+      "severity": "error",
+      "description": "timestamp is not '%Y-%m-%d %H:%M:%S'",
+      "checked": 59007,
+      "failed": 874,
+      "action": "rejected -> errors dataset"
+    },
+    {
+      "table": "interactions",
+      "check": "future_timestamp",
+      "severity": "error",
+      "description": "timestamp is after the reference date",
+      "checked": 59007,
+      "failed": 477,
+      "action": "rejected -> errors dataset"
+    },
+    {
+      "table": "interactions",
+      "check": "exact_duplicate_row",
+      "severity": "error",
+      "description": "Row is an exact copy of an earlier row",
+      "checked": 59007,
+      "failed": 732,
+      "action": "rejected -> errors dataset"
+    },
+    {
+      "table": "interactions",
+      "check": "repeat_user_item_pair",
+      "severity": "warning",
+      "description": "same (user, item) rated more than once -> latest rating kept in preparation",
+      "checked": 59007,
+      "failed": 1954,
+      "action": "kept, repaired in preparation"
+    },
+    {
+      "table": "interactions",
+      "check": "orphan_user_id",
+      "severity": "error",
+      "description": "user_id not found in validated users",
+      "checked": 59007,
+      "failed": 1030,
+      "action": "rejected -> errors dataset"
+    },
+    {
+      "table": "interactions",
+      "check": "orphan_item_id",
+      "severity": "error",
+      "description": "item_id not found in validated items",
+      "checked": 59007,
+      "failed": 732,
+      "action": "rejected -> errors dataset"
+    },
+    {
+      "table": "interactions",
+      "check": "interaction_before_signup",
+      "severity": "error",
+      "description": "interaction happened before the user's signup_date",
+      "checked": 59007,
+      "failed": 245,
+      "action": "rejected -> errors dataset"
+    }
+  ],
+  "seconds": 0.57
+}

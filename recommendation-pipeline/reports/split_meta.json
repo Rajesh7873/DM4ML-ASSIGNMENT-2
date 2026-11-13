@@ -1,0 +1,20 @@
+{
+  "cutoff": "2024-10-08 06:32:47.400000",
+  "train_rows": 41482,
+  "test_rows": 10371,
+  "test_rows_warm": 10371,
+  "test_rows_cold_user": 0,
+  "test_rows_cold_item": 0,
+  "train_range": [
+    "2023-01-06 01:32:58",
+    "2024-10-08 06:32:42"
+  ],
+  "test_range": [
+    "2024-10-08 06:32:51",
+    "2024-12-31 22:58:45"
+  ],
+  "n_users": 1493,
+  "n_items": 600,
+  "n_interactions_clean": 51853,
+  "seconds": 0.14
+}

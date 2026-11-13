@@ -1,0 +1,62 @@
+# Central configuration for the recommendation pipeline.
+# Every stage reads from this file, so a run is fully described by (code + config + seed).
+seed: 42
+
+paths:
+  raw: data/raw
+  processed: data/processed
+  features: data/features
+  errors: data/errors
+  models: models
+  reports: reports
+
+data:
+  source: synthetic          # "synthetic" or "csv" (csv expects users.csv/items.csv/interactions.csv in csv_dir)
+  csv_dir: data/raw
+  n_users: 1500
+  n_items: 600
+  mean_interactions_per_user: 30
+  start_date: "2023-01-01"
+  end_date: "2024-12-31"
+  dirty_rate: 0.025          # base rate of injected data-quality problems (synthetic only)
+
+validation:
+  reference_date: "2025-01-01"   # fixed "today" so timestamp checks are reproducible
+  rating_min: 1
+  rating_max: 5
+  age_min: 10
+  age_max: 100
+  release_year_min: 1900
+  max_error_rate: 0.15           # quality gate: fail the pipeline if any table loses more than this share
+
+preparation:
+  test_fraction: 0.2             # last 20% of the timeline becomes the test set
+  relevance_threshold: 4.0       # rating >= 4 counts as a "relevant" item
+
+features:
+  bayes_prior_count: 10          # smoothing strength for Bayesian average rating
+
+training:
+  als:
+    factors: 32
+    reg: 0.1
+    alpha: 20.0
+    iterations: 15
+  biased_mf:
+    factors: 16
+    reg: 0.08
+    iterations: 12
+    bias_reg: 5.0
+  hybrid:
+    tune: true
+    val_fraction: 0.15           # last 15% (by time) of the training period is used for tuning
+    w_content_grid: [0.0, 0.15, 0.3, 0.5, 0.75, 1.0, 1.5, 2.0]
+    w_pop_grid: [0.0, 0.1]
+
+evaluation:
+  k_values: [5, 10]
+  primary_k: 10
+
+mlflow:
+  tracking_uri: "sqlite:///mlflow.db"
+  experiment_name: "recommendation-pipeline"

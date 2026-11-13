@@ -1,0 +1,6 @@
+item_id,title,category,release_year,error_reasons
+435,Movie 0435,sci-fi|thriller|horror,1996,exact_duplicate_row;
+474,Movie 0474,comedy|sci-fi,2018,exact_duplicate_row;
+441,Movie 0441,animation|horror|fantasy,2003,exact_duplicate_row;
+30,Movie 0030,fantasy,2003,exact_duplicate_row;
+505,Movie 0505,comedy|drama|fantasy,1995,exact_duplicate_row;

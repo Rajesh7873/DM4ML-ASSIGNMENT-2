@@ -1,0 +1,59 @@
+05:31:15 | INFO    | recpipe.ingestion | Generating synthetic data (seed=42)
+05:31:17 | INFO    | recpipe.ingestion | Ingested users        rows=1513 cols=5 md5=c6da4c76
+05:31:17 | INFO    | recpipe.ingestion | Ingested items        rows=605 cols=4 md5=dc1c7ec1
+05:31:17 | INFO    | recpipe.ingestion | Ingested interactions rows=59007 cols=4 md5=c7e51259
+05:31:18 | INFO    | recpipe.validation | users        in=1513 valid=1493 rejected=20 (1.32%) warning_rows=136
+05:31:18 | INFO    | recpipe.validation |    [ERROR] exact_duplicate_row          failed=13
+05:31:18 | INFO    | recpipe.validation |    [WARNING] missing_age                  failed=63
+05:31:18 | INFO    | recpipe.validation |    [WARNING] age_out_of_range             failed=13
+05:31:18 | INFO    | recpipe.validation |    [WARNING] missing_country              failed=38
+05:31:18 | INFO    | recpipe.validation |    [WARNING] missing_gender               failed=26
+05:31:18 | INFO    | recpipe.validation |    [ERROR] invalid_signup_date          failed=7
+05:31:18 | INFO    | recpipe.validation | items        in=605 valid=600 rejected=5 (0.83%) warning_rows=34
+05:31:18 | INFO    | recpipe.validation |    [ERROR] exact_duplicate_row          failed=5
+05:31:18 | INFO    | recpipe.validation |    [WARNING] missing_title                failed=19
+05:31:18 | INFO    | recpipe.validation |    [WARNING] missing_category             failed=15
+05:31:18 | INFO    | recpipe.validation |    [WARNING] release_year_out_of_range    failed=3
+05:31:18 | INFO    | recpipe.validation | interactions in=59007 valid=52736 rejected=6271 (10.63%) warning_rows=1954
+05:31:18 | INFO    | recpipe.validation |    [ERROR] invalid_dtype_user_id        failed=649
+05:31:18 | INFO    | recpipe.validation |    [ERROR] missing_rating               failed=504
+05:31:18 | INFO    | recpipe.validation |    [ERROR] invalid_dtype_rating         failed=147
+05:31:18 | INFO    | recpipe.validation |    [ERROR] rating_out_of_range          failed=1144
+05:31:18 | INFO    | recpipe.validation |    [ERROR] invalid_timestamp            failed=874
+05:31:18 | INFO    | recpipe.validation |    [ERROR] future_timestamp             failed=477
+05:31:18 | INFO    | recpipe.validation |    [ERROR] exact_duplicate_row          failed=732
+05:31:18 | INFO    | recpipe.validation |    [WARNING] repeat_user_item_pair        failed=1954
+05:31:18 | INFO    | recpipe.validation |    [ERROR] orphan_user_id               failed=1030
+05:31:18 | INFO    | recpipe.validation |    [ERROR] orphan_item_id               failed=732
+05:31:18 | INFO    | recpipe.validation |    [ERROR] interaction_before_signup    failed=245
+05:31:18 | INFO    | recpipe.validation | Quality gate passed (worst table rejected 10.63% <= 15%)
+05:31:18 | INFO    | recpipe.preparation | De-duplicated (user,item) pairs: 52736 -> 51853 rows
+05:31:18 | INFO    | recpipe.preparation | Time split at 2024-10-08 06:32:47.400000 -> train=41482 test=10371 (warm-start test rows=10371)
+05:31:18 | INFO    | recpipe.transformation | Interaction matrix (1493, 599) nnz=41482 density=0.046
+05:31:18 | INFO    | recpipe.features | Features built: users=1493 (23 cols) items=599 (10 cols)
+05:31:20 | INFO    | recpipe.training | Tuning hybrid weights on a time-based validation slice
+05:31:22 | INFO    | recpipe.training |   tune w_content=0.00 w_pop=0.00 -> val NDCG@10=0.1013
+05:31:22 | INFO    | recpipe.training |   tune w_content=0.00 w_pop=0.10 -> val NDCG@10=0.1024
+05:31:22 | INFO    | recpipe.training |   tune w_content=0.15 w_pop=0.00 -> val NDCG@10=0.1208
+05:31:22 | INFO    | recpipe.training |   tune w_content=0.15 w_pop=0.10 -> val NDCG@10=0.1230
+05:31:22 | INFO    | recpipe.training |   tune w_content=0.30 w_pop=0.00 -> val NDCG@10=0.1337
+05:31:22 | INFO    | recpipe.training |   tune w_content=0.30 w_pop=0.10 -> val NDCG@10=0.1370
+05:31:22 | INFO    | recpipe.training |   tune w_content=0.50 w_pop=0.00 -> val NDCG@10=0.1430
+05:31:22 | INFO    | recpipe.training |   tune w_content=0.50 w_pop=0.10 -> val NDCG@10=0.1480
+05:31:22 | INFO    | recpipe.training |   tune w_content=0.75 w_pop=0.00 -> val NDCG@10=0.1483
+05:31:22 | INFO    | recpipe.training |   tune w_content=0.75 w_pop=0.10 -> val NDCG@10=0.1522
+05:31:22 | INFO    | recpipe.training |   tune w_content=1.00 w_pop=0.00 -> val NDCG@10=0.1487
+05:31:22 | INFO    | recpipe.training |   tune w_content=1.00 w_pop=0.10 -> val NDCG@10=0.1534
+05:31:22 | INFO    | recpipe.training |   tune w_content=1.50 w_pop=0.00 -> val NDCG@10=0.1471
+05:31:22 | INFO    | recpipe.training |   tune w_content=1.50 w_pop=0.10 -> val NDCG@10=0.1521
+05:31:22 | INFO    | recpipe.training |   tune w_content=2.00 w_pop=0.00 -> val NDCG@10=0.1457
+05:31:22 | INFO    | recpipe.training |   tune w_content=2.00 w_pop=0.10 -> val NDCG@10=0.1503
+05:31:22 | INFO    | recpipe.training | Best hybrid weights: {'w_content': 1.0, 'w_pop': 0.1, 'val_ndcg@10': 0.15344466203737744, 'val_diversity@10': 0.24476186152901505}
+05:31:23 | INFO    | recpipe.training | Trained popularity in 0.0s (MLflow run f43fa042)
+05:31:24 | INFO    | recpipe.training | Trained als_mf     in 1.4s (MLflow run 1ae2bc88)
+05:31:24 | INFO    | recpipe.training | Trained hybrid     in 0.0s (MLflow run 04ae946d)
+05:31:24 | INFO    | recpipe.evaluation | Evaluating on 1345 users / 10371 warm test interactions (1345 relevant users)
+05:31:24 | INFO    | recpipe.evaluation | popularity  P@10=0.0502 R@10=0.1124 NDCG@10=0.0833 cov=0.055 div=0.850
+05:31:24 | INFO    | recpipe.evaluation | als_mf      P@10=0.0742 R@10=0.1721 NDCG@10=0.1403 cov=0.748 div=0.730
+05:31:24 | INFO    | recpipe.evaluation | hybrid      P@10=0.1016 R@10=0.2321 NDCG@10=0.1956 cov=0.758 div=0.233
+05:31:28 | INFO    | recpipe.preparation | De-duplicated (user,item) pairs: 4 -> 3 rows

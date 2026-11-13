@@ -1,0 +1,10 @@
+model,user_id,recommended
+popularity,1,"115 (Movie 0115, comedy|horror|thriller); 512 (Movie 0512, comedy|sci-fi); 488 (Movie 0488, horror); 6 (Movie 0006, comedy); 477 (Movie 0477, drama)"
+popularity,2,"115 (Movie 0115, comedy|horror|thriller); 512 (Movie 0512, comedy|sci-fi); 488 (Movie 0488, horror); 6 (Movie 0006, comedy); 103 (Movie 0103, action)"
+popularity,3,"399 (Movie 0399, animation|fantasy); 488 (Movie 0488, horror); 6 (Movie 0006, comedy); 43 (Movie 0043, animation|thriller); 103 (Movie 0103, action)"
+als_mf,1,"223 (Movie 0223, comedy|sci-fi); 600 (Movie 0600, documentary|thriller); 213 (Movie 0213, action|documentary|romance); 9 (Movie 0009, animation|horror); 279 (Movie 0279, fantasy|romance)"
+als_mf,2,"398 (Movie 0398, animation|romance|thriller); 172 (Movie 0172, documentary|thriller); 100 (Untitled item 100, unknown); 115 (Movie 0115, comedy|horror|thriller); 475 (Movie 0475, documentary)"
+als_mf,3,"119 (Movie 0119, documentary|horror); 6 (Movie 0006, comedy); 488 (Movie 0488, horror); 579 (Movie 0579, comedy|drama); 495 (Movie 0495, documentary)"
+hybrid,1,"600 (Movie 0600, documentary|thriller); 213 (Movie 0213, action|documentary|romance); 64 (Movie 0064, romance); 342 (Movie 0342, romance); 415 (Movie 0415, documentary)"
+hybrid,2,"475 (Movie 0475, documentary); 354 (Movie 0354, documentary); 52 (Movie 0052, documentary); 495 (Movie 0495, documentary); 255 (Movie 0255, documentary)"
+hybrid,3,"119 (Movie 0119, documentary|horror); 488 (Movie 0488, horror); 495 (Movie 0495, documentary); 354 (Movie 0354, documentary); 162 (Movie 0162, documentary)"

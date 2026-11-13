@@ -1,0 +1,30 @@
+{
+  "as_of": "2024-10-08 06:32:47.400000",
+  "global_mean_rating": 3.7880285425003617,
+  "genre_pref_columns": [
+    "genre_pref_action",
+    "genre_pref_animation",
+    "genre_pref_comedy",
+    "genre_pref_documentary",
+    "genre_pref_drama",
+    "genre_pref_fantasy",
+    "genre_pref_horror",
+    "genre_pref_romance",
+    "genre_pref_sci-fi",
+    "genre_pref_thriller",
+    "genre_pref_unknown"
+  ],
+  "genre_columns": [
+    "genre_action",
+    "genre_animation",
+    "genre_comedy",
+    "genre_documentary",
+    "genre_drama",
+    "genre_fantasy",
+    "genre_horror",
+    "genre_romance",
+    "genre_sci-fi",
+    "genre_thriller",
+    "genre_unknown"
+  ]
+}
