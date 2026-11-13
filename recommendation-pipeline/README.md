@@ -77,6 +77,7 @@ Warm-start users with >=1 relevant (rating>=4) test item; train-seen items are e
 
 ## 5. Results (K = 10)
 See `reports/evaluation_results.md` for the complete table (also K = 5, RMSE/MAE).
+see `successful_run.png` for execution status
 
 ![comparison](reports/model_comparison.png)
 
